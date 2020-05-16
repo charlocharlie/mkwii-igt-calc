@@ -11,10 +11,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Deploy
       if: success()
-      uses: crazy-max/ghaction-github-pages@v1
+      uses: crazy-max/ghaction-github-pages@v2
       with:
-        target_branch: gh-pages
         build_dir: .
       env:
-        GITHUB_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        GH_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       
