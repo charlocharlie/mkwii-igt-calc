@@ -1,0 +1,20 @@
+name: Publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        target_branch: gh-pages
+        build_dir: .
+      env:
+        GITHUB_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      
